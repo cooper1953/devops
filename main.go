@@ -9,6 +9,9 @@ import (
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	title := "Jenkins X golang http example"
+	if value := os.GetEnv("TITLE");; value != "" {
+		title = value
+	}
 
 	from := ""
 	if r.URL != nil {
